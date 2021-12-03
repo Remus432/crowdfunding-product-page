@@ -16,8 +16,14 @@ const PrimaryBtn = styled(BasicBtn)`
   color: ${colors.white};
   padding: 1.6rem 4rem;
 
-  &:hover {
+  &:active {
     background-color: ${colors.dark_cyan};
+  }
+
+  @media (min-width: 1200px) {
+    &:hover {
+      background-color: ${colors.dark_cyan};
+    }
   }
 `
 
