@@ -14,11 +14,18 @@ const BasicBtn = styled.button`
 const PrimaryBtn = styled(BasicBtn)`
   background-color: ${colors.moderate_cyan};
   color: ${colors.white};
-  padding: 0 4rem;
+  padding: 1.6rem 4rem;
 
   &:hover {
     background-color: ${colors.dark_cyan};
   }
+`
+
+const DisabledBtn = styled(BasicBtn)`
+  background-color: ${colors.dark_grey};
+  color: ${colors.white};
+  cursor: not-allowed;
+  padding: 1.6rem 4rem;
 `
 
 const BookmarkBtn = styled(BasicBtn)`
@@ -43,4 +50,4 @@ const BookmarkBtn = styled(BasicBtn)`
   }
 `
 
-export { PrimaryBtn, BookmarkBtn }
+export { PrimaryBtn, DisabledBtn, BookmarkBtn }

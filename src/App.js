@@ -5,6 +5,7 @@ import Nav from "./components/Nav"
 import ProjectWrapper from "./components/ProjectWrapper"
 import ProjectRiser from "./components/ProjectRiser"
 import FundingProgress from './components/FundingProgress'
+import AboutProject from "./components/AboutProject"
 import "./styles.scss"
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <ProjectWrapper>
           <ProjectRiser />
           <FundingProgress />
+          <AboutProject />
         </ProjectWrapper>
       </div>
     </Provider>

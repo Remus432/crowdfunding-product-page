@@ -1,5 +1,5 @@
 import { css } from "styled-components"
-import { colors } from "../variables"
+import { colors, spacing } from "../variables"
 
 const flexPos = ({ x, y, flexdir }) => `
   align-items: ${y || "default"};
@@ -18,4 +18,10 @@ const cardBasic = css`
   border-radius: .8rem;
 `
 
-export { flexPos, bgImage, cardBasic }
+const pBasic = css`
+  color: ${colors.dark_grey};
+  font-size: 1.4rem;
+  line-height: ${spacing.medium};
+`
+
+export { flexPos, bgImage, cardBasic, pBasic }

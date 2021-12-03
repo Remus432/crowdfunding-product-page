@@ -8,7 +8,6 @@ const ProjectRiserStyled = styled.section`
   border-radius: .8rem;
   padding: 0 ${spacing.medium} 4.2rem ${spacing.medium};
   position: relative;
-  transform: translateY(-5rem);
 
   ${flexPos({ y: "center", flexdir: "column" })};
 
@@ -24,10 +23,6 @@ const ProjectRiserStyled = styled.section`
     button:first-child {
       margin-right: ${spacing.exsmall};
     }
-  }
-
-  @media (min-width: 1200px) {
-    transform: translateY(-8rem);
   }
 `
 
