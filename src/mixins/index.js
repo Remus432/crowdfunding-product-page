@@ -2,10 +2,10 @@ import { css } from "styled-components"
 import { colors, spacing } from "../variables"
 
 const flexPos = ({ x, y, flexdir }) => `
-  align-items: ${y || "default"};
+  align-items: ${y || "unset"};
   display: flex;
   flex-direction: ${flexdir || "row"};
-  justify-content: ${x || "default"};
+  justify-content: ${x || "unset"};
 `
 
 const bgImage = ({ angle, firstColor, secondColor, img }) => `

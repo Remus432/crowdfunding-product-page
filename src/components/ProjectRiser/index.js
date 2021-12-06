@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from "react-redux"
-import { selectIsBookmarked, toggleBookmark } from "../../reducers/uiReducer"
+import { selectIsBookmarked, toggleBookmark, toggleModal } from "../../reducers/uiReducer"
+import { selectDefaultPledge, selectPledge } from "../../reducers/pledgesReducer"
 import ProjectDescription from "../ProjectDescription"
 import ProjectRiserStyled from "./ProjectRiserStyled"
 import { PrimaryBtn, BookmarkBtn } from "../Button/ButtonStyled"
@@ -13,6 +14,12 @@ const ProjectRiser = () => {
   const windowW = useWindowWidth()
   const dispatch = useDispatch()
   const isBookmarked = useSelector(selectIsBookmarked)
+  const defaultPledge = useSelector(selectDefaultPledge)
+
+  const multipleActions = () => {
+    dispatch(toggleModal())
+    dispatch(selectPledge(defaultPledge.uuid))
+  }
 
   return (
     <>
@@ -20,7 +27,7 @@ const ProjectRiser = () => {
         <img src={ProjectIcon} alt="Mastercraft Bamboo Project Icon" />
         <ProjectDescription />
         <div className="btns">
-          <PrimaryBtn>Back this project</PrimaryBtn>
+          <PrimaryBtn onClick={() => multipleActions()}>Back this project</PrimaryBtn>
           <BookmarkBtn onClick={() => dispatch(toggleBookmark())} isBookmarked={isBookmarked} windowW={windowW}>
            <img src={isBookmarked ? BookmarkGreenIcon : BookmarkIcon} alt="Bookmark Icon" />
           { windowW < 1200 ? "" :  <span>Bookmark</span> }
