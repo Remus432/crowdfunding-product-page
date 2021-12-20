@@ -20,7 +20,7 @@ function App() {
   }, [isModalOn, isPledgeBacked, isMenuOn])
 
   return (
-    <div className={`App ${isModalOn || isPledgeBacked ? "modal-on" : ""} ${isMenuOn ? "menu-on" : ""}`}>
+    <main className={`App ${isModalOn || isPledgeBacked ? "modal-on" : ""} ${isMenuOn ? "menu-on" : ""}`}>
       {isModalOn && <PledgeModal />}
       {isPledgeBacked && <SupportThanks /> }
       <Nav />
@@ -29,7 +29,7 @@ function App() {
         <FundingProgress />
         <AboutProject />
       </ProjectWrapper>
-    </div>
+    </main>
   );
 }
 
