@@ -8,6 +8,7 @@ const PledgeAccordion = ({ isModal = false, pledge_type, min_amount, spots_left,
   const dispatch = useDispatch()
   const currentPledge = useSelector(selectCurrentPledge)
 
+
   return (
     <>
       <PledgeAccordionStyled className={`${currentPledge === uuid ? "selected" : ""}`} spots_left={spots_left}>
@@ -22,7 +23,7 @@ const PledgeAccordion = ({ isModal = false, pledge_type, min_amount, spots_left,
               checked={currentPledge === uuid} />
             <label className="radio-btn" htmlFor={uuid}></label>
           </div>
-          <div>
+          <div className="pledge-limit">
             <a href={`#${uuid}`}></a>
             <h3>{pledge_type}</h3>
             <span>{isModal ? "" : `Pledge $${min_amount} or more`}</span>
@@ -35,7 +36,15 @@ const PledgeAccordion = ({ isModal = false, pledge_type, min_amount, spots_left,
         <div className="enter-pledge">
           <p>Enter your pledge</p>
           <div className="pledge-group">
-            <input type="number" />
+            <div class="input-group">
+              <span>$</span>
+              <input 
+                onFocus={e => e.target.parentElement.classList.add("focused")} 
+                onBlur={e => e.target.parentElement.classList.remove("focused")} 
+                min="25"
+                defaultValue={min_amount}
+                type="number" />
+            </div>
             <PrimaryBtn>Continue</PrimaryBtn>
           </div>
         </div>

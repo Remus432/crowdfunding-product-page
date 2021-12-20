@@ -5,12 +5,12 @@ import { spacing, colors } from "../../variables"
 const PledgeModalStyled = styled.section`
   height: 100%;
   position: fixed;
-  left: 49.5vw;
+  left: 49.8vw;
   padding: ${spacing.large} ${spacing.medium};
   top: 0vh;
   transform: translateX(-50%);
   overflow-y: scroll;
-  width: 32.7rem;
+  width: 98vw;
   z-index: 2;
 
   &::-webkit-scrollbar {
@@ -31,12 +31,6 @@ const PledgeModalStyled = styled.section`
     cursor: pointer;
   }
 
-  div {
-    &:not(:first-child) {
-      ${flexPos({ x: "space-between", y: "flex-start", flexdir: "column" })};
-    }
-  }
-
   .modal-info {
     margin-bottom: ${spacing.medium};
     ${flexPos({ x: "space-between", y: "center" })};
@@ -50,10 +44,12 @@ const PledgeModalStyled = styled.section`
     ${pBasic};
   }
 
+  @media (min-width: 375px) {
+    width: 95vw;
+  }
+
   @media (min-width: 1200px) {
     width: 73rem;
-
-    
   }
 `
 

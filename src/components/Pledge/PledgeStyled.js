@@ -5,6 +5,10 @@ import { cardBasic, pBasic, flexPos } from "../../mixins"
 const PledgeStyled = styled.article`
   &.selected {
     border: 2px solid ${colors.moderate_cyan};
+
+    .enter-pledge {
+      ${flexPos({ x: "center", y: "center", flexdir: "column" })};
+    }
   }
 
   padding: ${spacing.medium};
@@ -14,10 +18,6 @@ const PledgeStyled = styled.article`
   }
 
   ${cardBasic};
-
-  // & > *:not(:last-child) {
-  //   margin-bottom: ${spacing.medium};
-  // } 
 
   .paragraph {
     ${pBasic};
@@ -38,7 +38,6 @@ const PledgeStyled = styled.article`
     color: ${colors.black};
     font-size: ${spacing.large};
     font-weight: 700;
-    // margin-bottom: ${spacing.medium};
 
     span {
       color: ${colors.dark_grey};
@@ -49,8 +48,13 @@ const PledgeStyled = styled.article`
   }
 
   @media (min-width: 1200px) {
-    padding: ${spacing.exlarge};
-    padding-top: 3.8rem;
+    padding-top: 3.3rem;
+
+    &.selected {
+      .enter-pledge {
+        ${flexPos({ x: "center", y: "center", flexdir: "row" })};
+      }
+    }
 
     div {
       ${flexPos({ x: "space-between", y: "center" })};
@@ -63,6 +67,15 @@ const PledgeStyled = styled.article`
 `
 
 const PledgeAccordionStyled = styled(PledgeStyled)`
+  padding: 0;
+  position: relative;
+
+  & > *:not(:last-of-type) {
+    padding: 0 ${spacing.medium};
+  }
+
+  padding-top: ${spacing.medium};
+
   .pledge-type {
     ${flexPos({ y: "center" })};
 
@@ -88,7 +101,44 @@ const PledgeAccordionStyled = styled(PledgeStyled)`
   }
 
   .enter-pledge {
-    display: none!important;
+    border-top: 1px solid ${colors.light_grey};
+    padding: ${spacing.medium};
+    display: none;
+      
+    
+  }
+
+  .pledge-group {
+    margin-top: ${spacing.small};
+    width: 100%;
+    ${flexPos({ x: "space-between", y: "center" })};
+
+    .input-group {
+      border: 1px solid rgba(0, 0, 0, .15);
+      border-radius: 3.3rem;
+      padding: ${spacing.small};
+      width: 10rem;
+
+      &.focused {
+        border: 1px solid ${colors.dark_cyan};
+      }
+
+      ${flexPos({ y: "center" })};
+
+      span {
+        color: ${colors.light_grey};
+        font-weight: 700;
+        margin-right: .8rem;
+      }
+
+      input { 
+        border: none;
+        caret-color: ${colors.dark_cyan};
+        font-size: 1.4rem;
+        font-weight: 700;
+        width: 5rem;
+      }
+    }
   }
 
   .pledge-description {
@@ -127,9 +177,40 @@ const PledgeAccordionStyled = styled(PledgeStyled)`
 
   .spots {
     font-size: 1.8rem;
+    padding-left: ${spacing.medium};
+    margin-bottom: ${spacing.medium};
 
     span {
       font-size: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .pledge-type {
+      h3 {
+        margin-bottom: 0;
+        margin-right: ${spacing.small};
+      }
+    }
+
+    .enter-pledge {
+      p {
+        width: 100%;
+      }
+    }
+
+    .pledge-group {
+      ${flexPos({ x: "flex-end", y: "center", flexdir: "row" })};
+
+      .input-group {
+        margin-right: ${spacing.small};
+      }
+    }
+
+    .spots {
+      position: absolute;
+      right: ${spacing.medium};
+      top: ${spacing.medium};
     }
   }
 `
