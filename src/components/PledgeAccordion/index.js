@@ -12,7 +12,7 @@ const PledgeAccordion = ({ isModal = false, pledge_type, min_amount, spots_left,
   const pledgeInput = useRef()
 
   const addPledge = () => {
-    if (!isNaN(parseInt(pledgeInput.current.value))) {
+    if (parseInt(pledgeInput.current.value) !== 0) {
       dispatch(updatePledgeSpots(currentPledge))
       dispatch(updateTotalBackers())
       dispatch(updateTotalBackedAmount(parseInt(pledgeInput.current.value)))

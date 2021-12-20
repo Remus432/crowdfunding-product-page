@@ -3,6 +3,7 @@ import { pBasic, cardBasic, flexPos } from "../../mixins"
 import { spacing, colors } from "../../variables"
 
 const PledgeModalStyled = styled.section`
+  animation: fadeInDown .4s forwards ease-in;
   height: 100%;
   position: fixed;
   left: 49.8vw;

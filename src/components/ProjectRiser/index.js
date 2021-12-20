@@ -9,6 +9,7 @@ import ProjectIcon from "../../images/logo-mastercraft.svg"
 import BookmarkIcon from "../../images/icon-bookmark.svg"
 import BookmarkGreenIcon from "../../images/icon-bookmark-green.svg"
 import { useWindowWidth } from "../../hooks"
+import { motion } from "framer-motion"
 
 const ProjectRiser = () => {
   const windowW = useWindowWidth()
@@ -22,7 +23,7 @@ const ProjectRiser = () => {
   }
 
   return (
-    <>
+    <motion.div>
       <ProjectRiserStyled>
         <img src={ProjectIcon} alt="Mastercraft Bamboo Project Icon" />
         <ProjectDescription />
@@ -34,7 +35,7 @@ const ProjectRiser = () => {
           </BookmarkBtn>
         </div>
       </ProjectRiserStyled>
-    </>
+    </motion.div>
   )
 }
 

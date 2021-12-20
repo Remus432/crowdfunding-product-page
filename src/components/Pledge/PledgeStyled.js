@@ -108,8 +108,6 @@ const PledgeAccordionStyled = styled(PledgeStyled)`
     border-top: 1px solid ${colors.light_grey};
     padding: ${spacing.medium};
     display: none;
-      
-    
   }
 
   .pledge-group {

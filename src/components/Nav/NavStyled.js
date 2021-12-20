@@ -5,6 +5,7 @@ import { flexPos, bgImage } from "../../mixins"
 import { spacing } from "../../variables"
 
 const NavStyled = styled.nav`
+  animation: bgZoomIn 1.4s forwards ease-in-out;
   background-size: cover;
   background-repeat: no-repeat;
   padding: ${spacing.large} ${spacing.medium} 0 ${spacing.medium};
