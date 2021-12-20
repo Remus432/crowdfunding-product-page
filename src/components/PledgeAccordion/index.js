@@ -24,7 +24,6 @@ const PledgeAccordion = ({ isModal = false, pledge_type, min_amount, spots_left,
             <label className="radio-btn" htmlFor={uuid}></label>
           </div>
           <div className="pledge-limit">
-            <a href={`#${uuid}`}></a>
             <h3>{pledge_type}</h3>
             <span>{isModal ? "" : `Pledge $${min_amount} or more`}</span>
           </div>
