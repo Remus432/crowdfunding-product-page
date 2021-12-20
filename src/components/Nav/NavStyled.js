@@ -7,6 +7,7 @@ import { spacing } from "../../variables"
 const NavStyled = styled.nav`
   animation: bgZoomIn 1.4s forwards ease-in-out;
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   padding: ${spacing.large} ${spacing.medium} 0 ${spacing.medium};
   height: 30rem;
