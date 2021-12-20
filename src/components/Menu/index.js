@@ -6,13 +6,13 @@ const index = ({ isMenuOn }) => {
     <>
       <MenuStyled className={isMenuOn ? "menu-on": ""}>
         <li>
-          <a href="#">About</a>
+          <a href="#about">About</a>
         </li>
         <li>
-          <a href="#">Discover</a>
+          <a href="#discover">Discover</a>
         </li>
         <li>
-          <a href="#">Get Started</a>
+          <a href="#get-started">Get Started</a>
         </li>
       </MenuStyled>
     </>
