@@ -11,6 +11,10 @@ const NavStyled = styled.nav`
   height: 30rem;
   width: 100%;
 
+  .menu-icon {
+    z-index: 5;
+  }
+
   ${bgImage({ angle: "100deg", firstColor: "rgba(0, 0, 0, .6)", secondColor: "rgba(0, 0, 0, .1)", img: HeroBgMobile })};
   ${flexPos({ x: "space-between", y: "flex-start" })};
 
@@ -21,7 +25,7 @@ const NavStyled = styled.nav`
 
     ${bgImage({ angle: "100deg", firstColor: "rgba(0, 0, 0, .6)", secondColor: "rgba(0, 0, 0, .1)", img: HeroBgDesktop })};
 
-    img:last-of-type {
+    .menu-icon {
       display: none;
     }
   }

@@ -14,11 +14,17 @@ const fundingReducer = createSlice({
   reducers: {
     calcPercentage: (state) => {
       state.percentage_complete = (((state.backed_amount * 100) / 100) / state.goal_amount) * 100
-    } 
+    },
+    updateTotalBackers: (state) => {
+      state.total_backers = state.total_backers + 1
+    },
+    updateTotalBackedAmount: (state, action) => {
+      state.backed_amount = state.backed_amount + action.payload
+    }
   }
 })
 
-export const { calcPercentage } = fundingReducer.actions
+export const { calcPercentage, updateTotalBackers, updateTotalBackedAmount } = fundingReducer.actions
 
 export const selectGoalAmount = (state) => state.funding.goal_amount
 export const selectBackedAmount = (state) => state.funding.backed_amount

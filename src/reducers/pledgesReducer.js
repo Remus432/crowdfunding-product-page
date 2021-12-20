@@ -39,11 +39,14 @@ const pledgesReducer = createSlice({
   reducers: {
     selectPledge: (state, action) => {
       state.selected_pledge = action.payload
-    }
+    },
+    updatePledgeSpots: (state, action) => {
+      state.pledgesArr = state.pledgesArr.map(pledge => pledge.uuid === action.payload ? {...pledge, spots_left: pledge.spots_left - 1} : pledge)
+    } 
   }
 })
 
-export const { selectPledge } = pledgesReducer.actions
+export const { selectPledge, updatePledgeSpots } = pledgesReducer.actions
 
 export const selectPledges = (state) => state.pledges.pledgesArr
 export const selectCurrentPledge = (state) => state.pledges.selected_pledge

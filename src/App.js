@@ -5,20 +5,24 @@ import ProjectRiser from "./components/ProjectRiser"
 import FundingProgress from './components/FundingProgress'
 import AboutProject from "./components/AboutProject"
 import PledgeModal from './components/PledgeModal'
+import SupportThanks from './components/SupportThanks'
 import { useSelector } from "react-redux"
-import { selectIsModalOn } from "./reducers/uiReducer"
+import { selectIsMenuOn, selectIsModalOn, selectIsPledgeBacked } from "./reducers/uiReducer"
 import "./styles.scss"
 
 function App() {
   const isModalOn = useSelector(selectIsModalOn)
+  const isMenuOn = useSelector(selectIsMenuOn)
+  const isPledgeBacked = useSelector(selectIsPledgeBacked)
 
   useEffect(() => {
-    isModalOn ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'unset'
-  }, [isModalOn])
+    isModalOn || isPledgeBacked || isMenuOn ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'unset'
+  }, [isModalOn, isPledgeBacked, isMenuOn])
 
   return (
-    <div className={`App ${isModalOn ? "modal-on" : ""}`}>
+    <div className={`App ${isModalOn || isPledgeBacked ? "modal-on" : ""} ${isMenuOn ? "menu-on" : ""}`}>
       {isModalOn && <PledgeModal />}
+      {isPledgeBacked && <SupportThanks /> }
       <Nav />
       <ProjectWrapper>
         <ProjectRiser />

@@ -37,4 +37,25 @@ body {
       z-index: 1;
     }
   }
+
+  &.menu-on {
+    &::before {
+      background-image: linear-gradient(to bottom, rgba(0,0,0, .5) 40%, transparent);
+      content: "";
+      height: 100vh;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 1;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;;
 }

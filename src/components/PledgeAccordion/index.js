@@ -1,13 +1,25 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { PrimaryBtn } from "../Button/ButtonStyled"
 import { PledgeAccordionStyled } from '../Pledge/PledgeStyled'  
 import { useDispatch, useSelector } from "react-redux"
-import { selectPledge, selectCurrentPledge } from '../../reducers/pledgesReducer'
+import { selectPledge, selectCurrentPledge, updatePledgeSpots } from '../../reducers/pledgesReducer'
+import { toggleModal, togglePledgeBacked } from "../../reducers/uiReducer"
+import { updateTotalBackers, updateTotalBackedAmount } from "../../reducers/fundingReducer"
 
 const PledgeAccordion = ({ isModal = false, pledge_type, min_amount, spots_left, uuid, description, hasNoReward }) => {
   const dispatch = useDispatch()
   const currentPledge = useSelector(selectCurrentPledge)
+  const pledgeInput = useRef()
 
+  const addPledge = () => {
+    if (!isNaN(parseInt(pledgeInput.current.value))) {
+      dispatch(updatePledgeSpots(currentPledge))
+      dispatch(updateTotalBackers())
+      dispatch(updateTotalBackedAmount(parseInt(pledgeInput.current.value)))
+      dispatch(toggleModal())
+      dispatch(togglePledgeBacked()) 
+    }
+  }
 
   return (
     <>
@@ -20,6 +32,7 @@ const PledgeAccordion = ({ isModal = false, pledge_type, min_amount, spots_left,
               className="select-pledge" 
               type="radio" 
               disabled={spots_left === 0}
+              readOnly
               checked={currentPledge === uuid} />
             <label className="radio-btn" htmlFor={uuid}></label>
           </div>
@@ -35,16 +48,17 @@ const PledgeAccordion = ({ isModal = false, pledge_type, min_amount, spots_left,
         <div className="enter-pledge">
           <p>Enter your pledge</p>
           <div className="pledge-group">
-            <div class="input-group">
+            <div className="input-group">
               <span>$</span>
               <input 
                 onFocus={e => e.target.parentElement.classList.add("focused")} 
                 onBlur={e => e.target.parentElement.classList.remove("focused")} 
-                min="25"
+                min={min_amount}
                 defaultValue={min_amount}
+                ref={pledgeInput}
                 type="number" />
             </div>
-            <PrimaryBtn>Continue</PrimaryBtn>
+            <PrimaryBtn onClick={addPledge}>Continue</PrimaryBtn>
           </div>
         </div>
       </PledgeAccordionStyled>

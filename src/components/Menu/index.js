@@ -1,10 +1,10 @@
 import React from 'react'
 import MenuStyled from "./MenuStyled"
 
-const index = () => {
+const index = ({ isMenuOn }) => {
   return (
     <>
-      <MenuStyled>
+      <MenuStyled className={isMenuOn ? "menu-on": ""}>
         <li>
           <a href="#about">About</a>
         </li>

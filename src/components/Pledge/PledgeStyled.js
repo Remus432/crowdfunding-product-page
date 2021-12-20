@@ -70,6 +70,10 @@ const PledgeAccordionStyled = styled(PledgeStyled)`
   padding: 0;
   position: relative;
 
+  .alert {
+    border: 1px solid red!important;
+  }
+
   & > *:not(:last-of-type) {
     padding: 0 ${spacing.medium};
   }
@@ -146,7 +150,6 @@ const PledgeAccordionStyled = styled(PledgeStyled)`
 
     &.empty {
       margin-top: ${spacing.medium};
-      margin-bottom: 0;
     }
   }
 
